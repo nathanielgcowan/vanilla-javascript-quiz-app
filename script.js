@@ -26,7 +26,7 @@ quizForm.addEventListener("submit", e => {
   answers.forEach(answer => {
     const isCorrect = answer.value === "true"
     const questionItem = answer.closest('.question-item')
-    
+//    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
     if (isCorrect) {
       questionItem.classList.add("correct")
       questionItem.classList.remove("incorrect")
@@ -36,7 +36,14 @@ quizForm.addEventListener("submit", e => {
       questionItem.classList.remove("correct")
     }
   })
-//    4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
 //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
-
+  const allTrue = checkedAnswers.every(answer => answer.value === 'true')
+  const allAnswered = checkedAnswers.length === questionItem.length
+  
+  if (allTrue) {
+    alert.classList.add("active")
+    setTimeout(() => {
+      alert.classList.remove("active")
+    }, 10000)
+  }
 })
