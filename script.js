@@ -39,8 +39,8 @@ quizForm.addEventListener("submit", e => {
 //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
   const allTrue = checkedAnswers.every(answer => answer.value === 'true')
   const allAnswered = checkedAnswers.length === questionItem.length
-  
-  if (allTrue) {
+
+  if (allTrue && allAnswered) {
     alert.classList.add("active")
     setTimeout(() => {
       alert.classList.remove("active")
